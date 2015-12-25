@@ -1,6 +1,12 @@
 # RomHelper
 Permission and other custom feature helper for 3rd party roms
 
+# How do I use it?
+Using RomHelper's static method like below
+```java
+    RomHelper.hasFloatWindowPermission(context);
+```
+
 License
 -------
 
