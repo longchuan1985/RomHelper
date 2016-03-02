@@ -1,4 +1,11 @@
 apply plugin: 'com.android.application'
+//Dynamic adding productFlavors
+def map = [:]
+(1..4).each {
+    map[it]="flavor$it"
+}
+
+println map
 
 android {
     compileSdkVersion 23
@@ -17,6 +24,15 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
+
+    productFlavors {
+        map.each {key, value->
+            "$value" {
+                applicationIdSuffix "{$value}"
+            }
+        }
+    }
+
 }
 
 dependencies {
